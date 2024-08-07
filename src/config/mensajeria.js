@@ -4,7 +4,7 @@ import server from "../server.js";
 
 const io = new Server(server, {
 	cors: {
-		origin: process.env.URL_FRONTEND,
+		origin: "*",
 	},
 });
 

@@ -12,7 +12,7 @@ app.use(morgan("dev"));
 
 app.use(
 	cors({
-		origin: process.env.URL_FRONTEND,
+		origin: "*"
 	})
 );
 app.use(express.json());
