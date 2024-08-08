@@ -71,6 +71,10 @@ const listarPacientes = async (req, res) => {
 const detallePaciente = async (req, res) => {
     const { id } = req.params
     
+    if (req.pacienteBDD && "propietario" in req.pacienteBDD) 
+        return res.status(200).json(await Paciente.findById(id).select('-createdAt -updatedAt -__v -password -tratamientos').populate('veterinario', 'nombre apellido'))
+
+
     const paciente = await Paciente.findById(id).where('veterinario').equals(req.veterinarioBDD).select('-createdAt -updatedAt -__v -password -tratamientos').populate('veterinario', 'nombre apellido')
 
     const tratamientos = await Tratamiento.find({ estado: true }).where('paciente').equals(id)
