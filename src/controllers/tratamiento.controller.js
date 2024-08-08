@@ -42,9 +42,9 @@ const actualizarTratamiento = async (req, res) => {
 			.status(404)
 			.json({ res: `No existe el tratamiento con el id ${id}` });
 
-	await Tratamiento.findByIdAndUpdate(id, req.body);
+	const tratamiento = await Tratamiento.findByIdAndUpdate(id, req.body);
 
-	res.status(200).json({ res: `Tratamiento ${id} actualizado` });
+	res.status(200).json({ res: `Tratamiento ${id} actualizado`, tratamiento });
 };
 
 const eliminarTratamiento = async (req, res) => {
