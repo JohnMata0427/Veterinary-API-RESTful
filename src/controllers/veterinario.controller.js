@@ -52,7 +52,7 @@ const login = async (req, res) => {
     const token = generarToken(veterinarioBDD._id, 'veterinario')
     const { nombre, apellido, direccion, telefono, _id } = veterinarioBDD
 
-    res.status(200).json({ res: 'Login exitoso', token, nombre, apellido, direccion, telefono, _id, email })
+    res.status(200).json({ res: 'Login exitoso', token, nombre, apellido, direccion, telefono, _id, email, rol: 'veterinario' })
 }
 
 const recuperarPassword = async (req, res) => {

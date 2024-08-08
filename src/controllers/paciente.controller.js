@@ -43,7 +43,7 @@ const loginPaciente = async (req, res) => {
 
     const { nombre, propietario, celular, convencional, _id } = pacienteBDD
 
-    res.status(200).json({ token, _id, nombre, propietario, email, celular, convencional })
+    res.status(200).json({ token, _id, nombre, propietario, email, celular, convencional, rol: 'paciente' })
 };
 
 const perfilPaciente = (req, res) => {
